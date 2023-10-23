@@ -1,0 +1,47 @@
+
+public class QuickSort {
+
+    public static void Quicksort(int numeros[], int izq, int der){ //pide primer y ultimo num del arreglo
+        
+            //Se toma como pivote el primer valor
+            int pivote = numeros[izq];
+            
+            //Se definen los dos lados y un auxiliar
+            int izquierdo = izq; 
+            int derecho = der; 
+            int aux;
+           
+            while(izquierdo<derecho)
+            {
+               while (numeros[izquierdo] <= pivote && izquierdo < derecho) 
+            	   izquierdo++;
+
+               while (numeros[derecho] > pivote) 
+            	   derecho--;   
+
+               if (izquierdo<derecho) 
+               {                                     
+                   aux = numeros[izquierdo];                  
+                   numeros[izquierdo]= numeros[derecho];
+                   numeros[derecho]=aux;
+               }
+            }
+
+             numeros[izq] = numeros[derecho]; 
+             numeros[derecho] = pivote;
+
+             if (izq < derecho-1)
+                Quicksort(numeros,izq,derecho-1);
+
+             if (derecho+1 < der)
+                Quicksort(numeros,derecho+1,der);
+      }
+    
+    public static void imprimirQuickSort(int arreglo[]){
+        for(int i = 0; i < arreglo.length; i++)
+        {
+            System.out.print(arreglo[i] + ", ");
+        }
+    }
+            
+}
