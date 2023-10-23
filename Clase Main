@@ -1,0 +1,86 @@
+public class ArrayNumerosAleatorios {
+	BubbleSort bs;
+
+	
+    public static void main(String[] args) {
+        // Aquí colocamos los 100 números aleatorios dentro de un array.
+    	
+        int[] numeros = {
+                587, 254, 503, 818, 237, 215, 122, 653, 774, 202, 890, 657, 109, 859, 305, 789, 141, 788, 147, 598, 
+                227, 133, 423, 947, 969, 27, 792, 572, 908, 339, 746, 243, 181, 279, 428, 96, 647, 545, 872, 174, 
+                479, 934, 25, 931, 922, 678, 110, 292, 617, 104, 741, 726, 823, 503, 736, 581, 63, 852, 470, 121, 
+                419, 866, 283, 328, 336, 454, 196, 461, 473, 77, 764, 612, 468, 855, 962, 798, 287, 25, 394, 204, 
+                989, 293, 305, 361, 307, 154, 319, 803, 108, 538, 396, 227, 262, 949, 69, 123, 18, 255, 979, 493, 
+                657, 581, 71
+            };
+    	
+    	/*for(int i = 0; i < numerosAleatorios.length; i++) {
+    		System.out.print(numerosAleatorios[i] + ", ");
+    	}*/
+    	QuickSort quickSort;
+
+    	MergeSort mergeSort = new MergeSort();
+    	AvlTree arbol = new AvlTree();
+        
+        
+        System.out.println("\nPruebas de programas: ");
+        long comienzo = System.currentTimeMillis();
+        BubbleSort.bubbleSort(numeros, numeros.length);
+        BubbleSort.imprimirBubble(numeros, numeros.length);
+        long end = System.currentTimeMillis();
+        long tiempoTotal = end - comienzo;
+        System.out.println("\nEl tiempo con el metodo burbuja es: " + tiempoTotal + " milisegundos");
+        
+        int[] numeros1 = {
+                587, 254, 503, 818, 237, 215, 122, 653, 774, 202, 890, 657, 109, 859, 305, 789, 141, 788, 147, 598, 
+                227, 133, 423, 947, 969, 27, 792, 572, 908, 339, 746, 243, 181, 279, 428, 96, 647, 545, 872, 174, 
+                479, 934, 25, 931, 922, 678, 110, 292, 617, 104, 741, 726, 823, 503, 736, 581, 63, 852, 470, 121, 
+                419, 866, 283, 328, 336, 454, 196, 461, 473, 77, 764, 612, 468, 855, 962, 798, 287, 25, 394, 204, 
+                989, 293, 305, 361, 307, 154, 319, 803, 108, 538, 396, 227, 262, 949, 69, 123, 18, 255, 979, 493, 
+                657, 581, 71
+            };
+        
+        long comienzo1 = System.currentTimeMillis();
+        mergeSort.sort(numeros1, 0, numeros1.length-1);
+        mergeSort.imprimirMergeSort(numeros1);
+        long end1 = System.currentTimeMillis();
+        long tiempoTotal1 = end1 - comienzo1;
+        System.out.println("\nEl tiempo con el metodo merge sort es: " + tiempoTotal1 + " milisegundos");
+        
+        int[] numeros2 = {
+                587, 254, 503, 818, 237, 215, 122, 653, 774, 202, 890, 657, 109, 859, 305, 789, 141, 788, 147, 598, 
+                227, 133, 423, 947, 969, 27, 792, 572, 908, 339, 746, 243, 181, 279, 428, 96, 647, 545, 872, 174, 
+                479, 934, 25, 931, 922, 678, 110, 292, 617, 104, 741, 726, 823, 503, 736, 581, 63, 852, 470, 121, 
+                419, 866, 283, 328, 336, 454, 196, 461, 473, 77, 764, 612, 468, 855, 962, 798, 287, 25, 394, 204, 
+                989, 293, 305, 361, 307, 154, 319, 803, 108, 538, 396, 227, 262, 949, 69, 123, 18, 255, 979, 493, 
+                657, 581, 71
+            };
+        
+        long comienzo2 = System.currentTimeMillis();
+        QuickSort.Quicksort(numeros2, 0, numeros2.length-1);
+        QuickSort.imprimirQuickSort(numeros2);
+        long end2 = System.currentTimeMillis();
+        long tiempoTotal2 = end2 - comienzo2;
+        System.out.println("\nEl tiempo con el metodo quick sort es: " + tiempoTotal2 + " milisegundos");
+        
+        int[] numeros3 = {
+                587, 254, 503, 818, 237, 215, 122, 653, 774, 202, 890, 657, 109, 859, 305, 789, 141, 788, 147, 598, 
+                227, 133, 423, 947, 969, 27, 792, 572, 908, 339, 746, 243, 181, 279, 428, 96, 647, 545, 872, 174, 
+                479, 934, 25, 931, 922, 678, 110, 292, 617, 104, 741, 726, 823, 503, 736, 581, 63, 852, 470, 121, 
+                419, 866, 283, 328, 336, 454, 196, 461, 473, 77, 764, 612, 468, 855, 962, 798, 287, 25, 394, 204, 
+                989, 293, 305, 361, 307, 154, 319, 803, 108, 538, 396, 227, 262, 949, 69, 123, 18, 255, 979, 493, 
+                657, 581, 71
+            };
+        
+        long comienzo3 = System.currentTimeMillis();
+        for(int i=0; i < numeros3.length; i++) {
+        	arbol.insertNode(numeros3[i], arbol.root);
+        }
+        arbol.recorridoInorder(arbol.root);
+        long end3 = System.currentTimeMillis();
+        long tiempoTotal3 = end3 - comienzo3;
+        System.out.println("\nEl tiempo con el metodo AVL tree sort es: " + tiempoTotal3 + " milisegundos");
+
+        
+    }
+}
